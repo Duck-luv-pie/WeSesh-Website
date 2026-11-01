@@ -33,8 +33,8 @@
         <img class="logo-dark" src="assets/wesesh-logo-dark.png" alt="WeSesh" />
       </a>
       <nav class="nav-actions">
-        <a href="#" class="btn btn-ghost">Sign in</a>
-        <a href="#" class="btn btn-primary">Start for free</a>
+        <a href="#updates" class="btn btn-ghost" data-open-updates>Get updates</a>
+        <a href="#" class="btn btn-primary">Download</a>
       </nav>
     </div>
   </header>
@@ -52,12 +52,22 @@
             <path d="M8 2v10M3.5 7.5 8 12l4.5-4.5M3 14.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="#" class="btn btn-secondary btn-lg">
-          Request a demo
-          <svg class="btn-icon" viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+        <!-- Product updates sign-up (Netlify Forms collects submissions) -->
+        <form class="updates" id="updates" name="updates" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="updates" />
+          <p hidden><label>Leave this empty: <input name="bot-field" /></label></p>
+          <label class="updates-field">
+            <span class="sr-only">Email address</span>
+            <input type="email" name="email" placeholder="you@email.com" required autocomplete="email" tabindex="-1" />
+          </label>
+          <button type="button" class="btn btn-secondary btn-lg updates-btn">
+            <span class="ub-label">Get updates</span>
+            <svg class="btn-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="updates-msg" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
@@ -379,12 +389,19 @@
         </div>
         <div class="feature-visual" style="--pos: 70% 30%">
           <div class="fv-win">
-            <div class="fv-bar"><i></i><i></i><i></i><span>Room Board</span></div>
-            <div class="fv-list">
-              <div class="lane"><span class="dot" style="--c:#4d8fe0"></span><b>alex &middot; Claude Code</b><span class="st working">Working</span><em>src/api/upload.ts</em></div>
-              <div class="lane"><span class="dot" style="--c:#c58ad6"></span><b>sam &middot; Codex</b><span class="st ready">Ready for review</span><em>rateLimit.test.ts</em></div>
-              <div class="lane"><span class="dot" style="--c:#e0a15a"></span><b>jordan &middot; Claude Code</b><span class="st merged">Merged</span><em>README.md</em></div>
-              <div class="msg"><span>alex &rarr; sam</span>Limiter is in. Tests are yours.</div>
+            <div class="fv-bar"><i></i><i></i><i></i><span>WeSesh</span></div>
+            <div class="tree">
+              <div class="tree-sec"><i class="tw open"></i>Room Board</div>
+              <div class="tr "><span class="twc"></span><span class="ti "><svg viewBox="0 0 16 16"><rect x="2.5" y="4.5" width="9" height="9" rx="1"/><path d="M4.5 4.5v-2h9v9h-2"/></svg></span><span class="tl">View agents</span><span class="td">2 working</span></div>
+              <div class="tr "><span class="twc"><i class="tw open"></i></span><span class="ti "><svg viewBox="0 0 16 16"><path d="M2 3h8v5H5.5L3 10V8H2z"/><path d="M10 6h4v5h-1v2l-2.5-2H7V8.5"/></svg></span><span class="tl">Agent messages (2)</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti "><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg></span><span class="tl">alex &rarr; sam</span><span class="td">Limiter is in. Tests are yours.</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti "><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M6.3 6.3a1.8 1.8 0 1 1 2.5 1.6c-.5.3-.8.6-.8 1.2M8 11.3v.2"/></svg></span><span class="tl">sam &rarr; alex</span><span class="td">Should a 429 include Retry-After?</span></div>
+              <div class="tr "><span class="twc"></span><span class="ti  blue"><svg class="spin" viewBox="0 0 16 16"><path d="M13 8a5 5 0 0 1-8.6 3.5M3 8a5 5 0 0 1 8.6-3.5M11.5 1.8v2.8H8.7M4.5 14.2v-2.8h2.8"/></svg></span><span class="tl">alex &middot; Claude Code</span><span class="td">Working &middot; src/api/upload.ts</span></div>
+              <div class="tr sel"><span class="twc"><i class="tw open"></i></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="4.5" cy="3.5" r="1.5"/><circle cx="4.5" cy="12.5" r="1.5"/><circle cx="11.5" cy="12.5" r="1.5"/><path d="M4.5 5v6M11.5 11V6.5a2 2 0 0 0-2-2H7M8.5 3 7 4.5 8.5 6"/></svg></span><span class="tl">sam (you) &middot; Codex</span><span class="td">Ready for review &middot; rateLimit.test.ts</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti "><svg viewBox="0 0 16 16"><circle cx="4.5" cy="3.5" r="1.5"/><circle cx="4.5" cy="12.5" r="1.5"/><circle cx="11.5" cy="12.5" r="1.5"/><path d="M4.5 5v6M11.5 11V6.5a2 2 0 0 0-2-2H7M8.5 3 7 4.5 8.5 6"/></svg></span><span class="tl">Review and merge&hellip;</span></div>
+              <div class="tr "><span class="twc"><i class="tw open"></i></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="none"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8" stroke="#0b0b0b" stroke-width="1.6"/></svg></span><span class="tl">Merged recently (1)</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="none"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8" stroke="#0b0b0b" stroke-width="1.6"/></svg></span><span class="tl">jordan &middot; Claude Code</span><span class="td">Merged &middot; README.md</span></div>
+              <div class="tr "><span class="twc"></span><span class="ti "><svg viewBox="0 0 16 16"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg></span><span class="tl">Auto-merge: On</span><span class="td">finished work merges right away</span></div>
             </div>
           </div>
         </div>
@@ -403,13 +420,19 @@
         </div>
         <div class="feature-visual" style="--pos: 50% 75%">
           <div class="fv-win">
-            <div class="fv-bar"><i></i><i></i><i></i><span>Merge</span></div>
-            <div class="fv-merge">
-              <div class="mrow ok"><span>&#10003;</span>alex's Claude Code &rarr; rateLimit.ts <em>merged</em></div>
-              <div class="mrow ok"><span>&#10003;</span>sam's Codex &rarr; rateLimit.test.ts <em>merged</em></div>
-              <div class="mrow ok"><span>&#10003;</span>Both edited upload.ts &middot; different lines <em>combined</em></div>
-              <div class="mrow alert"><span>!</span>config.ts &middot; same line changed <em>needs you</em></div>
-              <div class="mbtns"><span>Publish mine</span><span>Take the room's</span></div>
+            <div class="fv-bar"><i></i><i></i><i></i><span>WeSesh</span></div>
+            <div class="tree">
+              <div class="tree-sec"><i class="tw open"></i>Room Board</div>
+              <div class="tr "><span class="twc"><i class="tw open"></i></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="none"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8" stroke="#0b0b0b" stroke-width="1.6"/></svg></span><span class="tl">Merged recently (3)</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="none"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8" stroke="#0b0b0b" stroke-width="1.6"/></svg></span><span class="tl">alex &middot; Claude Code</span><span class="td">Merged &middot; rateLimit.ts, upload.ts</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="none"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8" stroke="#0b0b0b" stroke-width="1.6"/></svg></span><span class="tl">sam &middot; Codex</span><span class="td">Merged &middot; rateLimit.test.ts, upload.ts</span></div>
+              <div class="tr "><i class="guide"></i><span class="twc"></span><span class="ti  green"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="none"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8" stroke="#0b0b0b" stroke-width="1.6"/></svg></span><span class="tl">jordan &middot; Claude Code</span><span class="td">Merged &middot; README.md</span></div>
+              <div class="tr "><span class="twc"></span><span class="ti "><svg viewBox="0 0 16 16"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg></span><span class="tl">Auto-merge: On</span><span class="td">finished work merges right away</span></div>
+              <div class="tree-sec split"><i class="tw open"></i>Pending Changes
+                <span class="sec-actions"><span class="act hot"><svg viewBox="0 0 16 16"><path d="M4.5 12.5h-.5a3 3 0 0 1-.3-6A4 4 0 0 1 11.5 6a3 3 0 0 1 .5 6.5h-.5M8 13.5V8M6 10l2-2 2 2"/></svg><span class="hover-tip">Publish My Versions for Everyone</span></span><span class="act"><svg viewBox="0 0 16 16"><path d="M4.5 12.5h-.5a3 3 0 0 1-.3-6A4 4 0 0 1 11.5 6a3 3 0 0 1 .5 6.5h-.5M8 8v5.5M6 11.5l2 2 2-2"/></svg></span><span class="act"><svg viewBox="0 0 16 16"><circle cx="4.5" cy="3.5" r="1.5"/><circle cx="4.5" cy="12.5" r="1.5"/><circle cx="11.5" cy="12.5" r="1.5"/><path d="M4.5 5v6M11.5 11V6.5a2 2 0 0 0-2-2H7M8.5 3 7 4.5 8.5 6"/></svg></span></span>
+              </div>
+              <div class="tr sel"><span class="twc"></span><span class="ti  red"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="m5.8 5.8 4.4 4.4M10.2 5.8l-4.4 4.4"/></svg></span><span class="tl">src/config.ts</span><span class="td">needs merge</span></div>
+              <p class="tree-note">Both alex and sam changed line 12. Everything else merged on its own.</p>
             </div>
           </div>
         </div>
@@ -442,16 +465,23 @@
         </ol>
         <div class="how-stage">
           <div class="hw" aria-hidden="true">
-            <div class="hw-title"><span class="lights"><i></i><i></i><i></i></span><span class="hw-who"></span></div>
-            <div class="hw-body">
-              <div class="hw-act"><i></i><i></i><i></i><i class="on"></i></div>
-              <div class="hw-side"></div>
-              <div class="hw-main"></div>
+            <div class="hw-title">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="hw-cc"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><span class="hw-who"></span></span>
             </div>
+            <div class="hw-body">
+              <div class="hw-act"><span class="ai"><svg viewBox="0 0 24 24"><path d="M9 6V4h7l4 4v10h-3"/><path d="M4 8h9l3 3v9H4z"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="8" r="2"/><path d="M7 7v10M17 10c0 4-4 4-9 7"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="4" y="16" width="6" height="4"/><rect x="13" y="3" width="6" height="6" transform="rotate(15 16 6)"/></svg></span><span class="ai on"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 17v4l4-4M7 8.5h10M7 12.5h6"/></svg></span><span class="ai-fill"></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span></div>
+              <div class="hw-side"></div>
+              <div class="hw-main">
+                <div class="hw-tabs"><span class="hw-tab"><b>TS</b>upload.ts</span></div>
+                <div class="hw-ed"></div>
+              </div>
+            </div>
+            <div class="hw-status"><span class="sb-l">&#10697;</span><span>&#8855; 0 &#9888; 0</span><span class="sb-wesesh"></span><span class="sb-fill"></span><span>Ln 4, Col 22</span><span>TypeScript</span></div>
             <div class="hw-toast"></div>
             <div class="hw-overlay"></div>
           </div>
-          <div class="pointer"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.5 1.5L10 19z"/></svg></div>
+          <div class="pointer"><svg viewBox="0 0 28 28"><path d="M6 3v19.5l5.2-5 3.6 8.3 3.5-1.5-3.6-8.2H22z"/></svg></div>
         </div>
       </div>
     </section>
@@ -564,6 +594,7 @@
     document.addEventListener('click', e => { if (!lang.contains(e.target)) setLangOpen(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') setLangOpen(false); });
   </script>
+  <script src="updates.js"></script>
   <script src="mock.js"></script>
   <script src="sections.js"></script>
   <script src="dev-reload.js"></script>

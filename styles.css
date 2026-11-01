@@ -268,3 +268,38 @@ h1 {
   .hero { padding-top: 56px; }
   h1 br { display: none; }
 }
+
+/* ---------- Get updates sign-up ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.updates { position: relative; display: flex; align-items: center; }
+.updates-field {
+  display: block;
+  width: 0; opacity: 0;
+  overflow: hidden;
+  transition: width .35s ease, opacity .25s ease, margin .35s ease;
+}
+.updates-field input {
+  width: 260px; height: 52px;
+  padding: 0 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--btn-secondary-border);
+  background: var(--surface);
+  color: var(--fg);
+  font: 400 16px "Inter", sans-serif;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.updates-field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.updates.open .updates-field { width: 260px; opacity: 1; margin-right: 8px; }
+.updates-btn { font: inherit; font-size: 17px; font-weight: 500; cursor: pointer; }
+.updates-btn:disabled { opacity: .7; cursor: default; }
+.updates.done .updates-field, .updates.done .updates-btn { display: none; }
+.updates-msg { position: absolute; left: 4px; top: calc(100% + 8px); font-size: 14px; color: var(--fg-soft); white-space: nowrap; }
+.updates.done .updates-msg { position: static; padding: 14px 4px; color: var(--fg); }
+.updates.done .updates-msg::before { content: "\2713  "; color: #2f9e4f; font-weight: 700; }
+.updates-msg.err { color: #c0392b; }
+@media (max-width: 600px) {
+  .updates { flex-wrap: wrap; }
+  .updates.open .updates-field, .updates-field input { width: 100%; }
+  .updates.open .updates-field { margin: 0 0 8px; }
+}

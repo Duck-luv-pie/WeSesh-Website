@@ -1,7 +1,7 @@
 // Dev-only: reloads the page when watched files change. No-op outside localhost.
 (() => {
   if (!['localhost', '127.0.0.1'].includes(location.hostname)) return;
-  const files = ['index.html', 'styles.css', 'mock.css', 'mock.js', 'sections.css', 'sections.js'];
+  const files = ['index.html', 'styles.css', 'mock.css', 'mock.js', 'sections.css', 'sections.js', 'updates.js'];
   const seen = {};
   setInterval(async () => {
     for (const f of files) {
