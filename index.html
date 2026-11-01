@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WeSesh</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -29,8 +31,10 @@
   <header class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <img class="logo-light" src="assets/wesesh-logo.png" alt="WeSesh" />
-        <img class="logo-dark" src="assets/wesesh-logo-dark.png" alt="WeSesh" />
+        <img class="logo-mark logo-light" src="assets/wesesh-mark.png" alt="" />
+        <img class="logo-mark logo-dark" src="assets/wesesh-mark-dark.png" alt="" />
+        <img class="logo-light" src="assets/wesesh-logo.png?v=2" alt="WeSesh" />
+        <img class="logo-dark" src="assets/wesesh-logo-dark.png?v=2" alt="WeSesh" />
       </a>
       <nav class="nav-actions">
         <a href="#updates" class="btn btn-ghost" data-open-updates>Get updates</a>
@@ -100,7 +104,7 @@
                 <span class="abi"><svg viewBox="0 0 24 24"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="8" r="2"/><path d="M7 7v10M17 10c0 4-4 4-9 7"/></svg></span>
                 <span class="abi"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/><circle cx="7" cy="17" r="3"/></svg></span>
                 <span class="abi"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="4" y="16" width="6" height="4"/><rect x="13" y="3" width="6" height="6" transform="rotate(15 16 6)"/></svg><b class="badge">1</b></span>
-                <span class="abi on" data-tip="WeSesh lives in the Activity Bar: start a session, invite a friend, and see the room."><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 17v4l4-4M7 8.5h10M7 12.5h6"/></svg></span>
+                <span class="abi on" data-tip="WeSesh lives in the Activity Bar: start a session, invite a friend, and see the room."><i class="ws-icon"></i></span>
                 <span class="abi" data-tip="Your own Claude Code, with your own account. Nothing is shared but the work."><svg class="claude-mark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19M7.5 3l9 18M16.5 3l-9 18M3 7.5l18 9M3 16.5l18-9"/></svg></span>
                 <span class="ab-fill"></span>
                 <span class="abi"><span class="me">S</span></span>
@@ -470,7 +474,7 @@
               <span class="hw-cc"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><span class="hw-who"></span></span>
             </div>
             <div class="hw-body">
-              <div class="hw-act"><span class="ai"><svg viewBox="0 0 24 24"><path d="M9 6V4h7l4 4v10h-3"/><path d="M4 8h9l3 3v9H4z"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="8" r="2"/><path d="M7 7v10M17 10c0 4-4 4-9 7"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="4" y="16" width="6" height="4"/><rect x="13" y="3" width="6" height="6" transform="rotate(15 16 6)"/></svg></span><span class="ai on"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 17v4l4-4M7 8.5h10M7 12.5h6"/></svg></span><span class="ai-fill"></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span></div>
+              <div class="hw-act"><span class="ai"><svg viewBox="0 0 24 24"><path d="M9 6V4h7l4 4v10h-3"/><path d="M4 8h9l3 3v9H4z"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="8" r="2"/><path d="M7 7v10M17 10c0 4-4 4-9 7"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="4" y="16" width="6" height="4"/><rect x="13" y="3" width="6" height="6" transform="rotate(15 16 6)"/></svg></span><span class="ai on"><i class="ws-icon"></i></span><span class="ai-fill"></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg></span><span class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span></div>
               <div class="hw-side"></div>
               <div class="hw-main">
                 <div class="hw-tabs"><span class="hw-tab"><b>TS</b>upload.ts</span></div>
