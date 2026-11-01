@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeSesh — Pair programming for your AI agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <script>
+    // Apply theme before paint to avoid a flash. Pref: "system" | "light" | "dark".
+    (() => {
+      const mq = matchMedia('(prefers-color-scheme: dark)');
+      const apply = () => {
+        const pref = localStorage.getItem('theme') || 'system';
+        const dark = pref === 'dark' || (pref === 'system' && mq.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      };
+      apply();
+      mq.addEventListener('change', apply);
+      window.__applyTheme = apply;
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mock.css" />
+  <link rel="stylesheet" href="sections.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <img class="logo-light" src="assets/wesesh-logo.png" alt="WeSesh" />
+        <img class="logo-dark" src="assets/wesesh-logo-dark.png" alt="WeSesh" />
+      </a>
+      <nav class="nav-actions">
+        <a href="#" class="btn btn-ghost">Sign in</a>
+        <a href="#" class="btn btn-primary">Start for free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>
+        WeSesh is pair programming<br />
+        for your AI agents.
+      </h1>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary btn-lg">
+          Download for VS Code
+          <svg class="btn-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M8 2v10M3.5 7.5 8 12l4.5-4.5M3 14.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#" class="btn btn-secondary btn-lg">
+          Request a demo
+          <svg class="btn-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="showcase-frame">
+        <img class="showcase-bg" src="assets/hero.jpg?v=2" alt="" />
+        <div class="mock-stage">
+          <div class="win" aria-label="WeSesh running inside VS Code">
+            <!-- Title bar -->
+            <div class="tb">
+              <div class="lights"><i></i><i></i><i></i></div>
+              <div class="tb-center">
+                <span class="hv">&larr;</span><span class="hv">&rarr;</span>
+                <div class="cmd"><span>acme-app</span><span class="cmd-r"><svg viewBox="0 0 16 16"><path d="M3 3h10v7H8l-3 3v-3H3z"/></svg><span class="sep"></span>&#8964;</span></div>
+                <svg class="tb-ic" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5v11" /></svg>
+              </div>
+              <div class="tb-right">
+                <svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="M6.5 2.5v11M6.5 8H14"/></svg>
+                <svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="M6 2.5v11" stroke-width="3"/></svg>
+                <svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="M2 10h12" stroke-width="3"/></svg>
+                <svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="M10 2.5v11"/></svg>
+              </div>
+            </div>
+
+            <div class="wb">
+              <!-- Activity bar -->
+              <nav class="ab">
+                <span class="abi" data-tip="Explorer. Everyone has their own local copy of the project; WeSesh keeps the shared files in sync."><svg viewBox="0 0 24 24"><path d="M9 6V4h7l4 4v10h-3"/><path d="M4 8h9l3 3v9H4z"/></svg></span>
+                <span class="abi"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span>
+                <span class="abi"><svg viewBox="0 0 24 24"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="8" r="2"/><path d="M7 7v10M17 10c0 4-4 4-9 7"/></svg></span>
+                <span class="abi"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/><circle cx="7" cy="17" r="3"/></svg></span>
+                <span class="abi"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="4" y="16" width="6" height="4"/><rect x="13" y="3" width="6" height="6" transform="rotate(15 16 6)"/></svg><b class="badge">1</b></span>
+                <span class="abi on" data-tip="WeSesh lives in the Activity Bar: start a session, invite a friend, and see the room."><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 17v4l4-4M7 8.5h10M7 12.5h6"/></svg></span>
+                <span class="abi" data-tip="Your own Claude Code, with your own account. Nothing is shared but the work."><svg class="claude-mark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19M7.5 3l9 18M16.5 3l-9 18M3 7.5l18 9M3 16.5l18-9"/></svg></span>
+                <span class="ab-fill"></span>
+                <span class="abi"><span class="me">S</span></span>
+                <span class="abi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></span>
+              </nav>
+
+              <!-- Sidebar -->
+              <aside class="sb box">
+                <div class="sb-head"><b>WeSesh</b><span>&middot;&middot;&middot;</span></div>
+                <div class="sec open grow">
+                  <div class="sec-t">Session</div>
+                  <div class="sec-b">
+                    <div class="row" data-tip="Updates install themselves, so everyone in the room stays on the same version."><svg class="ri" viewBox="0 0 16 16"><path d="M4.5 12a3 3 0 0 1-.3-6A4 4 0 0 1 12 5.5a3 3 0 0 1 .5 6"/><circle cx="10.5" cy="11" r="3" fill="currentColor" stroke="none"/></svg>WeSesh 1.1 ready <em>reload to switch</em></div>
+                    <div class="row" data-tip="One invite link, up to four people. Works across different networks."><svg class="ri" viewBox="0 0 16 16"><circle cx="8" cy="8" r="1.2" fill="currentColor"/><path d="M5.5 5.5a3.5 3.5 0 0 0 0 5M10.5 5.5a3.5 3.5 0 0 1 0 5M3.5 3.5a6.4 6.4 0 0 0 0 9M12.5 3.5a6.4 6.4 0 0 1 0 9"/></svg>Session active <em>2/4 participants</em></div>
+                    <div class="row sel" data-tip="Their agent is working right now. Click to watch it in View agents."><svg class="av working" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#4d8fe0"/><text x="12" y="15.5" text-anchor="middle">A</text><g class="spin"><circle cx="12" cy="12" r="11" fill="none" stroke="#4d8fe0" stroke-opacity="0.35" stroke-width="1.5"/><circle class="arc" cx="12" cy="12" r="11" fill="none" stroke="#7ec699" stroke-width="2" stroke-linecap="round" stroke-dasharray="22 47"/></g></svg>alex <em>host &middot; online &middot; agent working</em></div>
+                    <div class="row" data-tip="That's you. Click a person to follow their cursor."><svg class="av" data-sam-av viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#c58ad6"/><text x="12" y="15.5" text-anchor="middle">S</text><g class="spin"><circle cx="12" cy="12" r="11" fill="none" stroke="#c58ad6" stroke-opacity="0.35" stroke-width="1.5"/><circle class="arc" cx="12" cy="12" r="11" fill="none" stroke="#7ec699" stroke-width="2" stroke-linecap="round" stroke-dasharray="22 47"/></g></svg>sam (you) <em data-sam-desc>editor &middot; online</em></div>
+                  </div>
+                </div>
+                <div class="sec open grow">
+                  <div class="sec-t">Room Board</div>
+                  <div class="sec-b">
+                    <div class="row" data-tip="See everyone's agent, what it's working on, and the conversation they chose to share."><svg class="ri" viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="11" height="11" rx="2.5"/><path d="M2.5 5.5h11"/></svg>View agents <em data-sum>1 working</em></div>
+                    <div class="row" data-tip="Agents message each other directly: questions, dependency notices and handoffs."><svg class="ri" viewBox="0 0 16 16"><path d="M2.5 3.5h8v5h-4l-2.5 2v-2h-1.5z"/><path d="M10.5 6h3v5H12v1.5L10 11H7.5"/></svg>Agent messages (2) <em>alex &rarr; sam: limiter is in</em></div>
+                    <div class="row" data-tip="Each agent works in a private copy. When it finishes, the work merges for everyone. Overlaps get a three-way merge."><svg class="ri" viewBox="0 0 16 16"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg>Auto-merge: On <em>finished work merges right away</em></div>
+                  </div>
+                </div>
+                <div class="sec"><div class="sec-t">Agents</div><div class="sec-b">
+                  <div class="row" data-tip="Claude Code and Codex connect on their own when you join a room. No config files, no terminal setup."><svg class="ri" viewBox="0 0 16 16"><path d="M6 2v3M10 2v3M4.5 5h7v3a3.5 3.5 0 0 1-7 0zM8 11.5V14"/></svg>Claude Code <em>Connected</em></div>
+                  <div class="row"><svg class="ri" viewBox="0 0 16 16"><path d="M6 2v3M10 2v3M4.5 5h7v3a3.5 3.5 0 0 1-7 0zM8 11.5V14"/></svg>Codex <em>Connected</em></div>
+                </div></div>
+                <div class="sec"><div class="sec-t">Pending Changes</div><div class="sec-b">
+                  <div class="row" data-tip="With auto-merge on, this only lists edits that overlap and need a person."><svg class="ri" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="m5.5 8 1.8 1.8L10.5 6.5"/></svg>Nothing needs you <em>all merged</em></div>
+                </div></div>
+                <div class="sec"><div class="sec-t">Shared Memory</div><div class="sec-b">
+                  <div class="row" data-tip="Short room facts every agent can read, so nobody re-explains the codebase."><svg class="ri" viewBox="0 0 16 16"><path d="M3 2.5h7l3 3v8H3z"/><path d="M5.5 7h5M5.5 9.5h5"/></svg>uploads-go-through-proxy <em>alex</em></div>
+                  <div class="row"><svg class="ri" viewBox="0 0 16 16"><path d="M3 2.5h7l3 3v8H3z"/><path d="M5.5 7h5M5.5 9.5h5"/></svg>test-command <em>sam</em></div>
+                </div></div>
+              </aside>
+
+              <div class="mn">
+                <!-- Editor -->
+                <section class="ed box">
+                  <div class="tabs">
+                    <span class="tab" data-view="plan"><svg class="ti md" viewBox="0 0 16 16"><path d="M8 2v9M4 7.5 8 11.5l4-4M3.5 14h9"/></svg>WESESH-PLAN.md</span>
+                    <span class="tab on" data-view="agents"><svg class="ti" viewBox="0 0 16 16"><rect x="4" y="5" width="8" height="7" rx="2"/><path d="M8 2.5V5M2.5 8.5h1.5M12 8.5h1.5"/></svg>Agents<span class="x">&times;</span></span>
+                    <span class="tab" data-view="code"><b class="ti ts">TS</b>rateLimit.ts</span>
+                    <span class="tabs-fill"></span>
+                    <span class="tabs-r">
+                      <svg class="claude-mark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19M7.5 3l9 18M16.5 3l-9 18M3 7.5l18 9M3 16.5l18-9"/></svg>
+                      <svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="M8 2.5v11"/></svg>
+                      <span>&middot;&middot;&middot;</span>
+                    </span>
+                  </div>
+
+                  <div class="views">
+                    <!-- View agents: one card per agent terminal -->
+                    <div class="view on agents" data-view="agents">
+                      <div class="ag-head">
+                        <b>Agents in this room</b>
+                        <span class="chips"><span class="chip" data-tip="Open a new Claude Code terminal in this folder">+ Claude Code</span><span class="chip" data-tip="Open a new Codex terminal in this folder">+ Codex</span></span>
+                      </div>
+                      <div class="panes">
+                        <!-- alex: Claude Code -->
+                        <section class="term working" id="card-alex" style="--me:#4d8fe0" data-tip="Alex's Claude Code, live. Type a prompt here and it goes straight into their terminal. They see who asked.">
+                          <div class="ctab"><span class="grip">&#8942;&#8942;</span><span class="dotav" style="background:#4d8fe0"></span><b>alex &middot; </b><svg class="cc-glyph" viewBox="0 0 18 6"><use href="#cc"/></svg><b>Claude Code</b></div>
+                          <div class="screen">
+                            <div class="shead">
+                              <p class="cwd"><b>~/acme-app</b> &rarr; <span>claude</span></p>
+                              <div class="cc-top">
+                                <svg class="cc-logo" viewBox="0 0 18 6" preserveAspectRatio="none"><g id="cc"><rect x="2" y="0" width="14" height="4" fill="#d7875f"/><rect x="1" y="1" width="1" height="1" fill="#d7875f"/><rect x="16" y="1" width="1" height="1" fill="#d7875f"/><rect x="5" y="1" width="1" height="1" fill="#000"/><rect x="12" y="1" width="1" height="1" fill="#000"/><rect x="2" y="4" width="1" height="1" fill="#d7875f"/><rect x="4" y="4" width="1" height="1" fill="#d7875f"/><rect x="13" y="4" width="1" height="1" fill="#d7875f"/><rect x="15" y="4" width="1" height="1" fill="#d7875f"/></g></svg>
+                                <pre><b>Claude Code</b> <span class="dim">v2.1.0</span>
+<span class="dim">Claude &middot; alex</span>
+<span class="dim">~/acme-app</span></pre>
+                              </div>
+                            </div>
+                            <p class="notice">&#10004; Working on: Rate limit the upload route</p>
+                            <p class="e user">Add rate limiting to /api/upload, 20 a minute per user</p>
+                            <p class="e tool">Update(src/middleware/rateLimit.ts)<span class="res">&#9151; Updated with 24 additions and 3 removals</span><span class="diff"><span class="del">- export const LIMIT = 100;</span><span class="add">+ export const LIMIT = 20;</span></span></p>
+                            <p class="e assistant">Limiter is in. Messaged sam's agent so it can write the tests.</p>
+                            <p class="live"><span class="star">&#10043;</span> Thinking&hellip; <span class="dim">(<span data-timer="41">41</span>s)</span></p>
+                          </div>
+                          <div class="cin"><div class="crow"><span>&rsaquo;</span></div><div class="hint">esc to interrupt &middot; &#9166; sends to alex's Claude Code &middot; ? for shortcuts &middot; they see who asked</div></div>
+                        </section>
+
+                        <!-- sam (you): Codex -->
+                        <section class="term you codex" id="card-sam" style="--me:#c58ad6" data-tip="Your Codex, in the same room. Its work merges for everyone when it finishes.">
+                          <div class="ctab"><span class="grip">&#8942;&#8942;</span><span class="dotav" style="background:#c58ad6"></span><b>sam (you) &middot; </b><svg class="cx-glyph" viewBox="0 0 24 24"><use href="#openai"/></svg><b>Codex</b><span class="cstate" data-state><i></i>ready for a prompt</span></div>
+                          <div class="screen">
+                            <div class="shead">
+                              <p class="cwd"><b>~/acme-app</b> &rarr; <span>codex</span></p>
+                              <div class="cx-box">
+                                <span class="legend">&gt;_ OpenAI Codex (v0.46.0)</span>
+                                <svg class="cx-mark" viewBox="0 0 24 24"><path id="openai" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
+                                <div><div class="kv"><b>model:</b> gpt-5-codex &nbsp;/model to change</div><div class="kv"><b>directory:</b> ~/acme-app</div></div>
+                              </div>
+                            </div>
+                            <p class="e user">Write tests for the upload rate limiter</p>
+                            <p class="e tool">Ran npm test -- rateLimit</p>
+                            <p class="e assistant"><span class="lbl">codex</span>Added 6 tests in rateLimit.test.ts. All passing.</p>
+                            <p class="e brew">Brewed for 18s</p>
+                          </div>
+                          <div class="cin"><div class="crow"><span>&rsaquo;</span></div><div class="hint">&#9166; sends to sam's Codex &middot; ? for shortcuts</div></div>
+                        </section>
+                      </div>
+                      <div class="flight" aria-hidden="true"></div>
+                    </div>
+
+                    <!-- The room plan: a normal shared file people edit and agents read -->
+                    <div class="view doc" data-view="plan" data-tip="The room plan is an ordinary shared file. Each person's AI only takes the lines with their name.">
+                      <p class="h"># Room plan</p>
+                      <p>&nbsp;</p>
+                      <p>Goal: Harden the upload API</p>
+                      <p>&nbsp;</p>
+                      <p class="dim">One line per piece of work. Each person's AI takes only the lines with their name.</p>
+                      <p>&nbsp;</p>
+                      <p>- [x] Rate limit uploads &middot; files: src/middleware/rateLimit.ts &middot; owner: alex/Claude Code</p>
+                      <p>- [x] Limiter tests &middot; files: src/middleware/rateLimit.test.ts &middot; owner: sam/Codex</p>
+                      <p>- [ ] Retry-After header &middot; files: src/api/upload.ts &middot; owner: alex/Claude Code</p>
+                      <p>- [ ] Document limits &middot; files: README.md &middot; owner: sam</p>
+                    </div>
+
+                    <!-- Code: live editing with remote cursors -->
+                    <div class="view code" data-view="code">
+<pre><span class="n">1</span><span class="k">import</span> type { <span class="t">Request</span>, <span class="t">Response</span>, <span class="t">NextFunction</span> } <span class="k">from</span> <span class="s">"express"</span>;
+<span class="n">2</span>
+<span class="n">3</span><span class="k">export const</span> <span class="c">WINDOW_MS</span> = <span class="m">60_000</span>;
+<span class="n">4</span><span class="k">export const</span> <span class="c">LIMIT</span> = <span class="m">20</span>;
+<span class="n">5</span><span class="k">const</span> hits = <span class="k">new</span> <span class="t">Map</span>&lt;<span class="t">string</span>, <span class="t">number</span>[]&gt;();
+<span class="n">6</span>
+<span class="n">7</span><span class="k">export function</span> <span class="f">rateLimit</span>(req: <span class="t">Request</span>, res: <span class="t">Response</span>, next: <span class="t">NextFunction</span>) {
+<span class="n">8</span>  <span class="k">const</span> now = <span class="t">Date</span>.<span class="f">now</span>();
+<span class="n">9</span>  <span class="k">const</span> recent = (hits.<span class="f">get</span>(req.ip) ?? []).<span class="f">filter</span>((t) =&gt; now - t &lt; <span class="c">WINDOW_MS</span>);
+<span class="n">10</span>  <span class="k">if</span> (recent.length &gt;= <span class="c">LIMIT</span>) <span class="k">return</span> res.<span class="f">status</span>(<span class="m">429</span>).<span class="f">end</span>();<span class="rcur" data-tip="Live editing: everyone's cursor shows in their color, with their name floating above it."><span class="rbadge">alex</span></span>
+<span class="n">11</span>  hits.<span class="f">set</span>(req.ip, [...recent, now]);
+<span class="n">12</span>  <span class="f">next</span>();
+<span class="n">13</span>}</pre>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Bottom panel: your own local terminal (WeSesh never shares terminals) -->
+                <section class="pn box">
+                  <div class="pn-tabs">
+                    <span class="pt">Problems</span><span class="pt">Output</span><span class="pt">Debug Console</span><span class="pt on">Terminal</span><span class="pt">Ports</span>
+                    <span class="tabs-fill"></span>
+                    <span class="pn-r">+ &#8964; &nbsp;&middot;&middot;&middot; <span class="vsep"></span> &#9974; &nbsp;&times;</span>
+                  </div>
+                  <div class="pn-body">
+                    <div class="term-out" data-tip="Your own terminal, on your machine. WeSesh never shares terminals or credentials; only finished work is shared.">
+                      <div><span class="b">&bull;</span> Added 6 tests in <b>src/middleware/rateLimit.test.ts</b>: limit reached, window reset, per-user counting, and three edge cases.</div>
+                      <div class="dim">&nbsp; &#9493; npm test -- rateLimit: 6 passed, 0 failed</div>
+                      <div><span class="b">&bull;</span> Submitted the task to the room. Auto-merge published it for everyone.</div>
+                      <div class="dim">&#9472;&#9472; Worked for 18s &#9472;&#9472;</div>
+                      <div class="t-input"><span>&rsaquo;</span></div>
+                      <div class="dim t-foot">? for shortcuts</div>
+                    </div>
+                    <div class="tlist">
+                      <div class="tl on"><svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="m4.5 6 2 2-2 2M8 10h3"/></svg>Codex</div>
+                      <div class="tl"><svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1"/><path d="m4.5 6 2 2-2 2M8 10h3"/></svg>zsh</div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <!-- Status bar -->
+            <div class="st">
+              <span class="st-remote">&#10697;</span>
+              <span>&#8855; 0 &nbsp;&#9888; 0</span>
+              <span data-tip="Session controls: copy an invite, change permissions, leave or end the session.">((&middot;)) WeSesh &middot; 2/4 &middot; <span data-status>1 working</span></span>
+              <span class="tabs-fill"></span>
+              <span>&#10033; Claude Code</span>
+              <span><svg class="st-ic" viewBox="0 0 16 16"><path d="M4 11V7a4 4 0 0 1 8 0v4l1 1.5H3zM6.5 14h3"/></svg></span>
+            </div>
+
+            <!-- VS Code notification toast -->
+            <div class="toast" data-toast><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 7.5v4M8 5h0"/></svg><span data-toast-text><b>alex</b> prompted your Codex: add a test for the Retry-After header</span><span class="tx">&times;</span></div>
+          </div>
+          <div class="tip" role="tooltip"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Value proposition -->
+    <section class="sec-block" id="why">
+      <div class="sec-head">
+        <p class="eyebrow">Why WeSesh</p>
+        <h2>Your whole crew. Every agent.<br />One codebase that keeps up.</h2>
+      </div>
+      <div class="values">
+        <article class="value">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5M11 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5"/></svg></div>
+          <h3>Use your friend's AI, not just their screen</h3>
+          <p>Type a prompt into your teammate's Claude Code or Codex right from your editor. It runs on their machine with their setup, and they see who asked.</p>
+        </article>
+        <article class="value">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/><path d="m20.2 18.2 1.8 1.8"/></svg></div>
+          <h3>Every agent starts with the full picture</h3>
+          <p>Agents share a room plan, short memory notes and direct messages. Nobody re-explains the codebase, and handoffs happen agent to agent.</p>
+        </article>
+        <article class="value">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <h3>Bring your own agent, keep your own keys</h3>
+          <p>Everyone uses their own AI account on their own computer. Credentials and terminals never leave your machine. Only finished work is shared.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 · Feature deep dives -->
+    <section class="sec-block" id="features">
+      <div class="sec-head">
+        <p class="eyebrow">Features</p>
+        <h2>Built for building together</h2>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <p class="feature-tag">Live collaboration</p>
+          <h3>Edit the same files at the same time</h3>
+          <p>Open a folder, start a session, and the project is shared automatically. Everyone's cursor shows in their own color, names float above where they're typing, and you can follow a teammate with one click.</p>
+          <ul class="checks">
+            <li>Up to four people per room, across different networks</li>
+            <li>VS Code and Cursor users in the same room</li>
+            <li>Secrets, dependencies and build output are never shared</li>
+          </ul>
+        </div>
+        <div class="feature-visual" style="--pos: 18% 40%">
+          <div class="fv-win">
+            <div class="fv-bar"><i></i><i></i><i></i><span>upload.ts</span></div>
+<pre class="fv-code"><span class="n">12</span><span class="k">export async function</span> <span class="f">upload</span>(req, res) {
+<span class="n">13</span>  <span class="k">const</span> file = req.<span class="f">file</span>;<span class="cur" style="--c:#4d8fe0"><b>alex</b></span>
+<span class="n">14</span>  <span class="k">if</span> (!file) <span class="k">return</span> res.<span class="f">status</span>(<span class="m">400</span>).<span class="f">end</span>();
+<span class="n">15</span>  <span class="k">const</span> url = <span class="k">await</span> <span class="f">store</span>(file);
+<span class="n">16</span>  res.<span class="f">json</span>({ url });<span class="cur" style="--c:#c58ad6"><b>sam</b></span>
+<span class="n">17</span>}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="feature-copy">
+          <p class="feature-tag">Independent agents</p>
+          <h3>Agents that work side by side, not over each other</h3>
+          <p>Each agent claims the files it's changing and works in its own private copy, so nothing half-finished lands in your editor. Agents message each other for handoffs, and the room board shows what everyone's AI is doing.</p>
+          <ul class="checks">
+            <li>Claude Code and Codex connect on their own when you join</li>
+            <li>A shared room plan decides who builds what</li>
+            <li>Share your agent's activity, or keep it private</li>
+          </ul>
+        </div>
+        <div class="feature-visual" style="--pos: 70% 30%">
+          <div class="fv-win">
+            <div class="fv-bar"><i></i><i></i><i></i><span>Room Board</span></div>
+            <div class="fv-list">
+              <div class="lane"><span class="dot" style="--c:#4d8fe0"></span><b>alex &middot; Claude Code</b><span class="st working">Working</span><em>src/api/upload.ts</em></div>
+              <div class="lane"><span class="dot" style="--c:#c58ad6"></span><b>sam &middot; Codex</b><span class="st ready">Ready for review</span><em>rateLimit.test.ts</em></div>
+              <div class="lane"><span class="dot" style="--c:#e0a15a"></span><b>jordan &middot; Claude Code</b><span class="st merged">Merged</span><em>README.md</em></div>
+              <div class="msg"><span>alex &rarr; sam</span>Limiter is in. Tests are yours.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <p class="feature-tag">Safe merging</p>
+          <h3>Finished work merges itself. Collisions don't.</h3>
+          <p>When an agent finishes, its work is published for everyone automatically. If two changes touch the same file, WeSesh merges them line by line. Only real overlaps wait for a person, and nothing is silently overwritten.</p>
+          <ul class="checks">
+            <li>Three-way merges for edits that don't collide</li>
+            <li>Review any agent's change as a normal diff</li>
+            <li>Turn auto-merge off to approve every change yourself</li>
+          </ul>
+        </div>
+        <div class="feature-visual" style="--pos: 50% 75%">
+          <div class="fv-win">
+            <div class="fv-bar"><i></i><i></i><i></i><span>Merge</span></div>
+            <div class="fv-merge">
+              <div class="mrow ok"><span>&#10003;</span>alex's Claude Code &rarr; rateLimit.ts <em>merged</em></div>
+              <div class="mrow ok"><span>&#10003;</span>sam's Codex &rarr; rateLimit.test.ts <em>merged</em></div>
+              <div class="mrow ok"><span>&#10003;</span>Both edited upload.ts &middot; different lines <em>combined</em></div>
+              <div class="mrow alert"><span>!</span>config.ts &middot; same line changed <em>needs you</em></div>
+              <div class="mbtns"><span>Publish mine</span><span>Take the room's</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · How it works -->
+    <section class="sec-block" id="how">
+      <div class="sec-head">
+        <p class="eyebrow">How it works</p>
+        <h2>From solo to multiplayer in a minute</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-n">1</span>
+          <h3>Create a room</h3>
+          <p>Open your project in VS Code, click WeSesh in the sidebar, and start a session. Your files are shared automatically, no picking required.</p>
+          <div class="step-ui"><span class="sbtn">Start a session</span></div>
+        </li>
+        <li class="step">
+          <span class="step-n">2</span>
+          <h3>Invite friends</h3>
+          <p>An invite link is copied for you. Friends open it in VS Code or Cursor and land in the same project, with their agents connected.</p>
+          <div class="step-ui"><span class="link"><svg viewBox="0 0 16 16"><path d="M6.5 9.5a3 3 0 0 0 4.2 0l2-2a3 3 0 0 0-4.2-4.2l-.8.8M9.5 6.5a3 3 0 0 0-4.2 0l-2 2a3 3 0 0 0 4.2 4.2l.8-.8"/></svg>Invitation copied</span></div>
+        </li>
+        <li class="step">
+          <span class="step-n">3</span>
+          <h3>Build together</h3>
+          <p>Edit side by side, prompt each other's agents, and watch finished work merge in for everyone.</p>
+          <div class="step-ui"><span class="avs"><i style="--c:#4d8fe0">A</i><i style="--c:#c58ad6">S</i><i style="--c:#e0a15a">J</i></span><span class="live-pill"><i></i>3 agents working</span></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 07 · FAQ -->
+    <section class="sec-block" id="faq">
+      <div class="faq-wrap">
+        <div class="sec-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Which editors does WeSesh work with?</summary>
+            <p>VS Code and Cursor. People on either editor can join the same room, so you don't need to agree on one.</p>
+          </details>
+          <details>
+            <summary>Which AI agents are supported?</summary>
+            <p>Claude Code and Codex. If they're installed, they connect to the room on their own as soon as you start or join one. Support for Cursor's agent is experimental. Each person can use a different agent.</p>
+          </details>
+          <details>
+            <summary>Do I have to share my AI account or API keys?</summary>
+            <p>No. Everyone uses their own account on their own computer. Your credentials, terminals and agent sign-ins stay local. WeSesh doesn't share terminals and never runs commands on someone else's machine.</p>
+          </details>
+          <details>
+            <summary>Can my teammate's prompt run my agent without me knowing?</summary>
+            <p>Prompts from a teammate go into the agent terminal WeSesh opened for you, labeled with who sent them, and you get a notification. You can turn friend prompts off at any time, and you can keep your agent's conversation private.</p>
+          </details>
+          <details>
+            <summary>What gets shared, and what stays private?</summary>
+            <p>Text files in the folder you open. Hidden files like .env, anything in your .gitignore, node_modules, build output, binaries and large files are left out. Keep secrets out of your source files as you normally would.</p>
+          </details>
+          <details>
+            <summary>What happens when two agents edit the same file?</summary>
+            <p>Each agent works in its own private copy and claims the files it's changing. When work finishes, changes to different lines are merged automatically. If two changes touch the same lines, the overlap waits in Pending Changes for a person to decide.</p>
+          </details>
+          <details>
+            <summary>How many people can join, and do we need the same network?</summary>
+            <p>Up to four people per room, and you can be on different networks. A local-network mode is also available if you'd rather keep everything on your own network.</p>
+          </details>
+          <details>
+            <summary>Does it work with a project I already have cloned?</summary>
+            <p>Yes. A friend can join from their existing clone. Matching files are left alone, differences stay as their local changes, and .git and node_modules are never touched.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>&copy; 2026 WeSesh, Inc.</span>
+    <div class="footer-controls">
+      <div class="theme-switch" role="radiogroup" aria-label="Theme">
+        <button role="radio" data-theme-pref="system" aria-label="System theme" title="System">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="15" height="10" rx="1.5"/><path d="M7 16.5h6"/></svg>
+        </button>
+        <button role="radio" data-theme-pref="light" aria-label="Light theme" title="Light">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="3"/><path d="M10 2.5v1.5M10 16v1.5M2.5 10H4M16 10h1.5M4.7 4.7l1.06 1.06M14.24 14.24l1.06 1.06M4.7 15.3l1.06-1.06M14.24 5.76l1.06-1.06"/></svg>
+        </button>
+        <button role="radio" data-theme-pref="dark" aria-label="Dark theme" title="Dark">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16.5 12.2A6.5 6.5 0 0 1 7.8 3.5a6.5 6.5 0 1 0 8.7 8.7Z"/></svg>
+        </button>
+      </div>
+      <div class="lang">
+        <button class="lang-btn" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c2 2.2 3 4.7 3 7.5s-1 5.3-3 7.5c-2-2.2-3-4.7-3-7.5s1-5.3 3-7.5Z"/></svg>
+          English
+          <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4 6 4 4 4-4"/></svg>
+        </button>
+        <ul class="lang-menu" role="listbox">
+          <li>
+            <button role="option" aria-selected="true">
+              English
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    const update = () => nav.classList.toggle('scrolled', window.scrollY > 4);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+
+    // Theme switcher
+    const themeButtons = document.querySelectorAll('[data-theme-pref]');
+    const syncThemeButtons = () => {
+      const pref = localStorage.getItem('theme') || 'system';
+      themeButtons.forEach(b => b.setAttribute('aria-checked', b.dataset.themePref === pref));
+    };
+    themeButtons.forEach(b => b.addEventListener('click', () => {
+      localStorage.setItem('theme', b.dataset.themePref);
+      window.__applyTheme();
+      syncThemeButtons();
+    }));
+    syncThemeButtons();
+
+    // Language menu (English only for now)
+    const lang = document.querySelector('.lang');
+    const langBtn = lang.querySelector('.lang-btn');
+    const setLangOpen = open => {
+      lang.classList.toggle('open', open);
+      langBtn.setAttribute('aria-expanded', open);
+    };
+    langBtn.addEventListener('click', e => { e.stopPropagation(); setLangOpen(!lang.classList.contains('open')); });
+    lang.querySelector('.lang-menu').addEventListener('click', () => setLangOpen(false));
+    document.addEventListener('click', e => { if (!lang.contains(e.target)) setLangOpen(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setLangOpen(false); });
+  </script>
+  <script src="mock.js"></script>
+  <script src="dev-reload.js"></script>
+</body>
+</html>
