@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Social preview card (1200x630). Rendered to assets/og.png; edit here and re-render. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Inter", sans-serif;
+    background: url("../assets/hero.jpg") 30% 55% / cover no-repeat;
+    color: #fff;
+  }
+  /* Darken the left for legible type, let the painting breathe on the right */
+  body::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(14,13,9,.92) 0%, rgba(14,13,9,.78) 40%, rgba(14,13,9,.25) 72%, rgba(14,13,9,.15) 100%),
+      linear-gradient(0deg, rgba(14,13,9,.35), transparent 40%);
+  }
+  .wrap { position: relative; height: 100%; display: grid; grid-template-columns: 560px 1fr; padding: 64px 64px 56px 72px; }
+
+  .left { display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand .mark { height: 46px; }
+  .brand .word { height: 40px; }
+  h1 { margin-top: auto; font-size: 68px; line-height: 1.04; font-weight: 500; letter-spacing: -0.04em; }
+  .foot { margin-top: 36px; display: flex; align-items: center; gap: 12px; font-size: 22px; color: rgba(255,255,255,.72); }
+  .foot b { color: #fff; font-weight: 600; }
+  .foot i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.5); }
+
+  /* The friend-prompt moment, as drawn in the extension's agent card */
+  .right { display: flex; align-items: center; justify-content: flex-end; }
+  .term {
+    position: relative; width: 520px;
+    border-radius: 12px; background: #1e1e1e;
+    font: 500 17px/1.5 "JetBrains Mono", monospace; color: #d6d6d6;
+    box-shadow: 0 40px 80px rgba(0,0,0,.55), 0 10px 24px rgba(0,0,0,.4);
+  }
+  /* The working light around the card, in alex's colour */
+  .term::before {
+    content: ""; position: absolute; inset: -2px; border-radius: 14px; z-index: -1;
+    background: conic-gradient(from 200deg, rgba(77,143,224,.15) 0 45%, #4d8fe0 75%, #fff 88%, rgba(77,143,224,.15) 100%);
+  }
+  .tab { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: #262626; border-bottom: 1px solid #3a3a3a; border-radius: 12px 12px 0 0; color: #8b8b8b; }
+  .tab b { color: #ededed; font-weight: 600; }
+  .tab .dot { width: 10px; height: 10px; border-radius: 50%; background: #4d8fe0; }
+  .tab svg { width: 30px; height: 10px; shape-rendering: crispEdges; }
+  .screen { padding: 16px 20px 20px; }
+  .cwd { color: #8b8b8b; margin-bottom: 12px; }
+  .cwd b { color: #ededed; }
+  .cwd span { color: #8fbf7f; }
+  .tool::before { content: "● "; color: #8fbf7f; }
+  .res { color: #8b8b8b; padding-left: 22px; margin-bottom: 14px; }
+  .ask {
+    position: relative;
+    margin: 4px -6px 14px; padding: 30px 14px 12px;
+    border-radius: 4px;
+    background: color-mix(in srgb, #c58ad6 22%, #2a2a2a);
+    box-shadow: inset 3px 0 0 #c58ad6, 0 0 0 1px rgba(197,138,214,.35), 0 0 36px rgba(197,138,214,.45);
+    color: #fff;
+  }
+  .ask .from { position: absolute; left: 14px; top: 7px; display: flex; align-items: center; gap: 7px; font: 600 14px "Inter", sans-serif; color: #e2c1ec; }
+  .ask .from i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; background: #c58ad6; color: #1b1020; font: 700 11px "Inter", sans-serif; font-style: normal; }
+  .ask .p { color: #a8a8a8; }
+  .live { color: #d97757; }
+  .live span { color: #8b8b8b; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="left">
+      <div class="brand">
+        <img class="mark" src="../assets/wesesh-mark-dark.png?v=2" alt="" />
+        <img class="word" src="../assets/wesesh-logo-dark.png?v=2" alt="WeSesh" />
+      </div>
+      <h1>Pair programming for your AI&nbsp;agents.</h1>
+      <div class="foot"><b>wesesh.com</b><i></i>for VS Code &amp; Cursor</div>
+    </div>
+    <div class="right">
+      <div class="term">
+        <div class="tab"><span class="dot"></span><b>alex</b> &middot;
+          <svg viewBox="0 0 18 6"><rect x="2" y="0" width="14" height="4" fill="#d97757"/><rect x="1" y="1" width="1" height="1" fill="#d97757"/><rect x="16" y="1" width="1" height="1" fill="#d97757"/><rect x="5" y="1" width="1" height="1" fill="#000"/><rect x="12" y="1" width="1" height="1" fill="#000"/><rect x="2" y="4" width="1" height="1" fill="#d97757"/><rect x="4" y="4" width="1" height="1" fill="#d97757"/><rect x="13" y="4" width="1" height="1" fill="#d97757"/><rect x="15" y="4" width="1" height="1" fill="#d97757"/></svg>
+          <b>Claude Code</b></div>
+        <div class="screen">
+          <div class="cwd"><b>~/acme-app</b> &rarr; <span>claude</span></div>
+          <div class="tool">Update(rateLimit.ts)</div>
+          <div class="res">&#9151; 24 additions, 3 removals</div>
+          <div class="ask"><span class="from"><i>S</i>sam</span><span class="p">&gt;</span> (sam via WeSesh asks) also log every 429 so we can spot abuse</div>
+          <div class="live">&#10043; Thinking&hellip; <span>(3s)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
