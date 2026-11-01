@@ -1,72 +1,72 @@
 <!DOCTYPE html>
-<!-- Social preview card (1200x630). Rendered to assets/og.png; edit here and re-render. -->
+<!-- Social preview card (1200x630). Rendered to assets/og-v2.png; edit here and re-render. -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1200px; height: 630px; overflow: hidden; }
-  body {
-    position: relative;
-    font-family: "Inter", sans-serif;
-    background: url("../assets/hero.jpg") 30% 55% / cover no-repeat;
-    color: #fff;
-  }
-  /* Darken the left for legible type, let the painting breathe on the right */
+  body { position: relative; font-family: "Inter", sans-serif; background: url("../assets/hero.jpg") 30% 55% / cover no-repeat; color: #fff; }
   body::before {
     content: ""; position: absolute; inset: 0;
     background:
-      linear-gradient(90deg, rgba(14,13,9,.92) 0%, rgba(14,13,9,.78) 40%, rgba(14,13,9,.25) 72%, rgba(14,13,9,.15) 100%),
+      linear-gradient(90deg, rgba(14,13,9,.93) 0%, rgba(14,13,9,.8) 38%, rgba(14,13,9,.3) 70%, rgba(14,13,9,.2) 100%),
       linear-gradient(0deg, rgba(14,13,9,.35), transparent 40%);
   }
-  .wrap { position: relative; height: 100%; display: grid; grid-template-columns: 560px 1fr; padding: 64px 64px 56px 72px; }
+  .wrap { position: relative; height: 100%; display: grid; grid-template-columns: 500px 1fr; padding: 60px 56px 54px 68px; }
 
   .left { display: flex; flex-direction: column; }
-  .brand { display: flex; align-items: center; gap: 16px; }
-  .brand .mark { height: 46px; }
-  .brand .word { height: 40px; }
-  h1 { margin-top: auto; font-size: 68px; line-height: 1.04; font-weight: 500; letter-spacing: -0.04em; }
-  .foot { margin-top: 36px; display: flex; align-items: center; gap: 12px; font-size: 22px; color: rgba(255,255,255,.72); }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand .mark { height: 42px; }
+  .brand .word { height: 36px; }
+  h1 { margin-top: auto; font-size: 58px; line-height: 1.05; font-weight: 500; letter-spacing: -0.04em; }
+  .sub { margin-top: 18px; font-size: 25px; line-height: 1.35; color: rgba(255,255,255,.82); letter-spacing: -0.01em; }
+  .sub b { color: #fff; font-weight: 600; }
+  .foot { margin-top: 30px; display: flex; align-items: center; gap: 12px; font-size: 20px; color: rgba(255,255,255,.66); }
   .foot b { color: #fff; font-weight: 600; }
   .foot i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.5); }
 
-  /* The friend-prompt moment, as drawn in the extension's agent card */
-  .right { display: flex; align-items: center; justify-content: flex-end; }
-  .term {
-    position: relative; width: 520px;
-    border-radius: 12px; background: #1e1e1e;
-    font: 500 17px/1.5 "JetBrains Mono", monospace; color: #d6d6d6;
-    box-shadow: 0 40px 80px rgba(0,0,0,.55), 0 10px 24px rgba(0,0,0,.4);
+  .right { position: relative; }
+  .card {
+    position: absolute; width: 470px;
+    border-radius: 14px; background: #1e1e1e;
+    font: 500 17px/1.45 "JetBrains Mono", monospace; color: #d6d6d6;
+    box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 8px 20px rgba(0,0,0,.4);
   }
-  /* The working light around the card, in alex's colour */
-  .term::before {
-    content: ""; position: absolute; inset: -2px; border-radius: 14px; z-index: -1;
-    background: conic-gradient(from 200deg, rgba(77,143,224,.15) 0 45%, #4d8fe0 75%, #fff 88%, rgba(77,143,224,.15) 100%);
+  .card::before { content: ""; position: absolute; inset: -2px; border-radius: 16px; z-index: -1; background: conic-gradient(from 210deg, transparent 0 45%, var(--me) 76%, #fff 88%, transparent 100%); }
+  .card.a { --me: #4d8fe0; top: 0; left: 0; }
+  .card.b { --me: #c58ad6; bottom: 0; right: 0; }
+  .who {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px; background: #262626; border-bottom: 1px solid #3a3a3a; border-radius: 14px 14px 0 0;
+    font: 600 22px/1 "Inter", sans-serif; color: #fff;
   }
-  .tab { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: #262626; border-bottom: 1px solid #3a3a3a; border-radius: 12px 12px 0 0; color: #8b8b8b; }
-  .tab b { color: #ededed; font-weight: 600; }
-  .tab .dot { width: 10px; height: 10px; border-radius: 50%; background: #4d8fe0; }
-  .tab svg { width: 30px; height: 10px; shape-rendering: crispEdges; }
-  .screen { padding: 16px 20px 20px; }
-  .cwd { color: #8b8b8b; margin-bottom: 12px; }
-  .cwd b { color: #ededed; }
-  .cwd span { color: #8fbf7f; }
-  .tool::before { content: "● "; color: #8fbf7f; }
-  .res { color: #8b8b8b; padding-left: 22px; margin-bottom: 14px; }
+  .av { width: 34px; height: 34px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--me); color: #111; font: 700 17px "Inter", sans-serif; }
+  .who .agent { margin-left: auto; display: flex; align-items: center; gap: 9px; font: 600 18px "Inter", sans-serif; color: #e6e6e6; }
+  .who .agent svg { flex: none; }
+  .cc { width: 36px; height: 12px; shape-rendering: crispEdges; }
+  .oa { width: 22px; height: 22px; fill: #f2f2f2; }
+  .body { padding: 14px 18px 16px; }
   .ask {
-    position: relative;
-    margin: 4px -6px 14px; padding: 30px 14px 12px;
-    border-radius: 4px;
-    background: color-mix(in srgb, #c58ad6 22%, #2a2a2a);
-    box-shadow: inset 3px 0 0 #c58ad6, 0 0 0 1px rgba(197,138,214,.35), 0 0 36px rgba(197,138,214,.45);
+    position: relative; padding: 30px 12px 10px; border-radius: 4px;
+    background: color-mix(in srgb, var(--c) 22%, #2a2a2a);
+    box-shadow: inset 3px 0 0 var(--c), 0 0 0 1px color-mix(in srgb, var(--c) 40%, transparent), 0 0 30px color-mix(in srgb, var(--c) 45%, transparent);
     color: #fff;
   }
-  .ask .from { position: absolute; left: 14px; top: 7px; display: flex; align-items: center; gap: 7px; font: 600 14px "Inter", sans-serif; color: #e2c1ec; }
-  .ask .from i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; background: #c58ad6; color: #1b1020; font: 700 11px "Inter", sans-serif; font-style: normal; }
+  .ask .from { position: absolute; left: 12px; top: 7px; display: flex; align-items: center; gap: 7px; font: 600 14px "Inter", sans-serif; color: color-mix(in srgb, var(--c) 60%, #fff); }
+  .ask .from i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; background: var(--c); color: #111; font: 700 11px "Inter", sans-serif; font-style: normal; }
   .ask .p { color: #a8a8a8; }
-  .live { color: #d97757; }
+  .live { margin-top: 12px; }
+  .a .live { color: #d97757; }
+  .b .live { color: #e6e6e6; }
   .live span { color: #8b8b8b; }
+
+  /* Prompts crossing between the two people's agents */
+  .swap { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .swap path { fill: none; stroke-width: 3; stroke-linecap: round; }
+  .swap .s1 { stroke: #c58ad6; filter: drop-shadow(0 0 6px rgba(197,138,214,.8)); }
+  .swap .s2 { stroke: #4d8fe0; filter: drop-shadow(0 0 6px rgba(77,143,224,.8)); }
 </style>
 </head>
 <body>
@@ -77,21 +77,34 @@
         <img class="word" src="../assets/wesesh-logo-dark.png?v=2" alt="WeSesh" />
       </div>
       <h1>Pair programming for your AI&nbsp;agents.</h1>
+      <p class="sub">Prompt your teammate's <b>Claude&nbsp;Code</b> or <b>Codex</b>, right from your own editor.</p>
       <div class="foot"><b>wesesh.com</b><i></i>for VS Code &amp; Cursor</div>
     </div>
     <div class="right">
-      <div class="term">
-        <div class="tab"><span class="dot"></span><b>alex</b> &middot;
-          <svg viewBox="0 0 18 6"><rect x="2" y="0" width="14" height="4" fill="#d97757"/><rect x="1" y="1" width="1" height="1" fill="#d97757"/><rect x="16" y="1" width="1" height="1" fill="#d97757"/><rect x="5" y="1" width="1" height="1" fill="#000"/><rect x="12" y="1" width="1" height="1" fill="#000"/><rect x="2" y="4" width="1" height="1" fill="#d97757"/><rect x="4" y="4" width="1" height="1" fill="#d97757"/><rect x="13" y="4" width="1" height="1" fill="#d97757"/><rect x="15" y="4" width="1" height="1" fill="#d97757"/></svg>
-          <b>Claude Code</b></div>
-        <div class="screen">
-          <div class="cwd"><b>~/acme-app</b> &rarr; <span>claude</span></div>
-          <div class="tool">Update(rateLimit.ts)</div>
-          <div class="res">&#9151; 24 additions, 3 removals</div>
-          <div class="ask"><span class="from"><i>S</i>sam</span><span class="p">&gt;</span> (sam via WeSesh asks) also log every 429 so we can spot abuse</div>
-          <div class="live">&#10043; Thinking&hellip; <span>(3s)</span></div>
+      <div class="card a">
+        <div class="who"><span class="av">A</span>alex
+          <span class="agent"><svg class="cc" viewBox="0 0 18 6"><rect x="2" y="0" width="14" height="4" fill="#d97757"/><rect x="1" y="1" width="1" height="1" fill="#d97757"/><rect x="16" y="1" width="1" height="1" fill="#d97757"/><rect x="5" y="1" width="1" height="1" fill="#000"/><rect x="12" y="1" width="1" height="1" fill="#000"/><rect x="2" y="4" width="1" height="1" fill="#d97757"/><rect x="4" y="4" width="1" height="1" fill="#d97757"/><rect x="13" y="4" width="1" height="1" fill="#d97757"/><rect x="15" y="4" width="1" height="1" fill="#d97757"/></svg>Claude Code</span></div>
+        <div class="body">
+          <div class="ask" style="--c:#c58ad6"><span class="from"><i>S</i>from sam</span><span class="p">&gt;</span> (sam via WeSesh asks) add tests for the limiter</div>
+          <div class="live">&#10043; Thinking&hellip; <span>(4s)</span></div>
         </div>
       </div>
+      <div class="card b">
+        <div class="who"><span class="av">S</span>sam
+          <span class="agent"><svg class="oa" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>Codex</span></div>
+        <div class="body">
+          <div class="ask" style="--c:#4d8fe0"><span class="from"><i>A</i>from alex</span><span class="p">&rsaquo;</span> (alex via WeSesh asks) review my rate limiter</div>
+          <div class="live">&#10043; Working&hellip; <span>(2s)</span></div>
+        </div>
+      </div>
+      <svg class="swap" viewBox="0 0 576 516">
+        <path class="s1" d="M530 288 C 540 220, 520 168, 482 156" marker-end="url(#h1)"/>
+        <path class="s2" d="M52 228 C 44 310, 62 382, 96 396" marker-end="url(#h2)"/>
+        <defs>
+          <marker id="h1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="head" d="M0 0L10 5L0 10z" style="fill:#c58ad6;stroke:none"/></marker>
+          <marker id="h2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="head" d="M0 0L10 5L0 10z" style="fill:#4d8fe0;stroke:none"/></marker>
+        </defs>
+      </svg>
     </div>
   </div>
 </body>
