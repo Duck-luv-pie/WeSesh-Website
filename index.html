@@ -275,27 +275,51 @@
     </section>
 
     <!-- 03 · Value proposition -->
-    <section class="sec-block" id="why">
-      <div class="sec-head">
+    <section class="sec-block why" id="why">
+      <div class="why-head">
         <p class="eyebrow">Why WeSesh</p>
         <h2>Your whole crew. Every agent.<br />One codebase that keeps up.</h2>
       </div>
-      <div class="values">
-        <article class="value">
-          <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5M11 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5"/></svg></div>
-          <h3>Use your friend's AI, not just their screen</h3>
-          <p>Type a prompt into your teammate's Claude Code or Codex right from your editor. It runs on their machine with their setup, and they see who asked.</p>
-        </article>
-        <article class="value">
-          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/><path d="m20.2 18.2 1.8 1.8"/></svg></div>
-          <h3>Every agent starts with the full picture</h3>
-          <p>Agents share a room plan, short memory notes and direct messages. Nobody re-explains the codebase, and handoffs happen agent to agent.</p>
-        </article>
-        <article class="value">
-          <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-          <h3>Bring your own agent, keep your own keys</h3>
-          <p>Everyone uses their own AI account on their own computer. Credentials and terminals never leave your machine. Only finished work is shared.</p>
-        </article>
+
+      <div class="why-row">
+        <h3>Prompt your teammate's AI.</h3>
+        <p>Type into their Claude Code or Codex from your own editor. It runs on their machine with their setup, and they see who asked.</p>
+        <div class="why-art">
+          <div class="art-term">
+            <div class="art-tab"><span class="d" style="--c:#4d8fe0"></span>alex &middot; Claude Code</div>
+            <div class="art-line friend" style="--c:#c58ad6"><span class="tag"><i>S</i>sam</span>&gt; (sam via WeSesh asks) also log every 429 so we can spot abuse</div>
+            <div class="art-line or">&#10043; Thinking&hellip; <span>(3s)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-row">
+        <h3>No agent starts from zero.</h3>
+        <p>Agents share a room plan, short memory notes and direct messages. Nobody re-explains the codebase, and handoffs happen agent to agent.</p>
+        <div class="why-art">
+          <div class="art-list">
+            <div class="art-fact"><span class="k">uploads-go-through-proxy</span><span class="by">alex</span></div>
+            <div class="art-fact"><span class="k">test-command</span><span class="by">sam</span></div>
+            <div class="art-msg"><span>alex's agent &rarr; sam's agent</span>Limiter is in. Tests are yours.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-row">
+        <h3>Your keys never leave your laptop.</h3>
+        <p>Everyone uses their own AI account on their own computer. Credentials and terminals stay local. Only finished work is shared.</p>
+        <div class="why-art">
+          <div class="art-split">
+            <div class="col">
+              <span class="lbl">Stays on your machine</span>
+              <span class="tok">API keys</span><span class="tok">AI sign-ins</span><span class="tok">Terminals</span><span class="tok">.env</span>
+            </div>
+            <div class="col shared">
+              <span class="lbl">Shared with the room</span>
+              <span class="tok">Finished work</span><span class="tok">Live edits</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -309,23 +333,35 @@
       <div class="feature">
         <div class="feature-copy">
           <p class="feature-tag">Live collaboration</p>
-          <h3>Edit the same files at the same time</h3>
-          <p>Open a folder, start a session, and the project is shared automatically. Everyone's cursor shows in their own color, names float above where they're typing, and you can follow a teammate with one click.</p>
+          <h3>One workspace, on everyone's computer</h3>
+          <p>Start a session and your project is copied to each teammate's machine, then kept in sync keystroke by keystroke. Everyone edits, runs and tests the same code locally, with their own tools, and sees each other's cursors as they type.</p>
           <ul class="checks">
             <li>Up to four people per room, across different networks</li>
             <li>VS Code and Cursor users in the same room</li>
             <li>Secrets, dependencies and build output are never shared</li>
           </ul>
         </div>
-        <div class="feature-visual" style="--pos: 18% 40%">
-          <div class="fv-win">
-            <div class="fv-bar"><i></i><i></i><i></i><span>upload.ts</span></div>
-<pre class="fv-code"><span class="n">12</span><span class="k">export async function</span> <span class="f">upload</span>(req, res) {
-<span class="n">13</span>  <span class="k">const</span> file = req.<span class="f">file</span>;<span class="cur" style="--c:#4d8fe0"><b>alex</b></span>
-<span class="n">14</span>  <span class="k">if</span> (!file) <span class="k">return</span> res.<span class="f">status</span>(<span class="m">400</span>).<span class="f">end</span>();
-<span class="n">15</span>  <span class="k">const</span> url = <span class="k">await</span> <span class="f">store</span>(file);
-<span class="n">16</span>  res.<span class="f">json</span>({ url });<span class="cur" style="--c:#c58ad6"><b>sam</b></span>
-<span class="n">17</span>}</pre>
+        <div class="feature-visual collab" style="--pos: 18% 40%" aria-label="One workspace copied to two laptops, staying in sync as alex and sam type">
+          <div class="ws-banner">
+            <span class="ws-pill"><svg viewBox="0 0 16 16"><path d="M2 4.5A1.5 1.5 0 0 1 3.5 3h3l1.5 1.5h4.5A1.5 1.5 0 0 1 14 6v5.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5z"/></svg><b>acme-app</b> &middot; the same workspace, on both computers</span>
+            <span class="ws-bracket"></span>
+          </div>
+          <div class="dual">
+            <div class="machine">
+              <div class="ed-pane" data-pane="alex">
+                <div class="ed-head"><i class="ed-av" style="--c:#4d8fe0">A</i><b>alex's laptop</b><span>VS Code</span></div>
+                <div class="ed-crumb"><span class="ws">~/acme-app</span> &rsaquo; src &rsaquo; api &rsaquo; <b>upload.ts</b></div>
+                <pre class="ed-code"></pre>
+              </div>
+            </div>
+            <div class="sync" aria-hidden="true"><span class="sync-dot"></span><span class="sync-lbl">in sync</span></div>
+            <div class="machine">
+              <div class="ed-pane" data-pane="sam">
+                <div class="ed-head"><i class="ed-av" style="--c:#c58ad6">S</i><b>sam's laptop</b><span>Cursor</span></div>
+                <div class="ed-crumb"><span class="ws">~/acme-app</span> &rsaquo; src &rsaquo; api &rsaquo; <b>upload.ts</b></div>
+                <pre class="ed-code"></pre>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -380,32 +416,44 @@
       </div>
     </section>
 
-    <!-- 05 · How it works -->
-    <section class="sec-block" id="how">
+    <!-- 05 · How it works: a guided demo that acts out each step -->
+    <section class="sec-block how" id="how">
       <div class="sec-head">
         <p class="eyebrow">How it works</p>
-        <h2>From solo to multiplayer in a minute</h2>
+        <h2>Up and running in three steps</h2>
       </div>
-      <ol class="steps">
-        <li class="step">
-          <span class="step-n">1</span>
-          <h3>Create a room</h3>
-          <p>Open your project in VS Code, click WeSesh in the sidebar, and start a session. Your files are shared automatically, no picking required.</p>
-          <div class="step-ui"><span class="sbtn">Start a session</span></div>
-        </li>
-        <li class="step">
-          <span class="step-n">2</span>
-          <h3>Invite friends</h3>
-          <p>An invite link is copied for you. Friends open it in VS Code or Cursor and land in the same project, with their agents connected.</p>
-          <div class="step-ui"><span class="link"><svg viewBox="0 0 16 16"><path d="M6.5 9.5a3 3 0 0 0 4.2 0l2-2a3 3 0 0 0-4.2-4.2l-.8.8M9.5 6.5a3 3 0 0 0-4.2 0l-2 2a3 3 0 0 0 4.2 4.2l.8-.8"/></svg>Invitation copied</span></div>
-        </li>
-        <li class="step">
-          <span class="step-n">3</span>
-          <h3>Build together</h3>
-          <p>Edit side by side, prompt each other's agents, and watch finished work merge in for everyone.</p>
-          <div class="step-ui"><span class="avs"><i style="--c:#4d8fe0">A</i><i style="--c:#c58ad6">S</i><i style="--c:#e0a15a">J</i></span><span class="live-pill"><i></i>3 agents working</span></div>
-        </li>
-      </ol>
+      <div class="how-wrap">
+        <ol class="how-steps">
+          <li class="how-step" data-step="0">
+            <button type="button"><span class="hs-n">1</span>Start a session</button>
+            <p>Open your project, click WeSesh in the sidebar, then <b>Start a session</b>. Your files are shared and an invite link is copied for you.</p>
+            <span class="hs-bar"><i></i></span>
+          </li>
+          <li class="how-step" data-step="1">
+            <button type="button"><span class="hs-n">2</span>Invite your crew</button>
+            <p>Send the link. Teammates open it in VS Code or Cursor, join from their own clone or a fresh folder, and their agents connect on their own.</p>
+            <span class="hs-bar"><i></i></span>
+          </li>
+          <li class="how-step" data-step="2">
+            <button type="button"><span class="hs-n">3</span>Build together</button>
+            <p>Edit side by side, prompt each other's agents, and watch finished work merge in for everyone.</p>
+            <span class="hs-bar"><i></i></span>
+          </li>
+        </ol>
+        <div class="how-stage">
+          <div class="hw" aria-hidden="true">
+            <div class="hw-title"><span class="lights"><i></i><i></i><i></i></span><span class="hw-who"></span></div>
+            <div class="hw-body">
+              <div class="hw-act"><i></i><i></i><i></i><i class="on"></i></div>
+              <div class="hw-side"></div>
+              <div class="hw-main"></div>
+            </div>
+            <div class="hw-toast"></div>
+            <div class="hw-overlay"></div>
+          </div>
+          <div class="pointer"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.5 1.5L10 19z"/></svg></div>
+        </div>
+      </div>
     </section>
 
     <!-- 07 · FAQ -->
@@ -517,6 +565,7 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') setLangOpen(false); });
   </script>
   <script src="mock.js"></script>
+  <script src="sections.js"></script>
   <script src="dev-reload.js"></script>
 </body>
 </html>
